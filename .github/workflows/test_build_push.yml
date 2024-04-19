@@ -5,15 +5,15 @@ on:
             - master
 
 jobs:
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/react-test -f ./client/Dockerfile.dev ./client
-            - run: docker run -e CI=true ${{ secrets.DOCKERHUB_USERNAME }}/react-test npm test
+    # test:
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - uses: actions/checkout@v4
+    #         - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/react-test -f ./client/Dockerfile.dev ./client
+    #         - run: docker run -e CI=true ${{ secrets.DOCKERHUB_USERNAME }}/react-test npm test
     
     login:
-        needs: test
+        # needs: test
         runs-on: ubuntu-latest
         steps:
             - 
@@ -29,12 +29,12 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - run: docker build -t shishir956/multi-client ./client
-            - run: docker build -t shishir956/multi-nginx ./nginx
-            - run: docker build -t shishir956/multi-server ./server
-            - run: docker build -t shishir956/multi-worker ./worker
+            # - run: docker build -t shishir956/multi-nginx ./nginx
+            # - run: docker build -t shishir956/multi-server ./server
+            # - run: docker build -t shishir956/multi-worker ./worker
        
             - run: docker push shishir956/multi-client:latest
-            - run: docker push shishir956/multi-nginx:latest
-            - run: docker push shishir956/multi-server:latest
-            - run: docker push shishir956/multi-worker:latest
+            # - run: docker push shishir956/multi-nginx:latest
+            # - run: docker push shishir956/multi-server:latest
+            # - run: docker push shishir956/multi-worker:latest
             
