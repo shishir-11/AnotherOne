@@ -22,12 +22,7 @@ jobs:
                 with:
                     username: ${{ secrets.DOCKERHUB_USERNAME }}
                     password: ${{ secrets.DOCKERHUB_PASSWORD }}
-    
-    build:
-        needs: login
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
+                    
             - run: docker build -t shishir956/multi-client ./client
             # - run: docker build -t shishir956/multi-nginx ./nginx
             # - run: docker build -t shishir956/multi-server ./server
