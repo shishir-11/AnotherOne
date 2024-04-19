@@ -28,12 +28,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-client-10-14 ./client
-            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-nginx-10-14 ./nginx
-            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-server-10-14 ./server
-            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-worker-10-14 ./worker
+            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-client ./client
+            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-nginx ./nginx
+            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-server ./server
+            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-worker ./worker
        
-            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-client-10-14
-            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-nginx-10-14
-            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-server-10-14
-            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-worker-10-14
+            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-client
+            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-nginx
+            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-server
+            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-worker
