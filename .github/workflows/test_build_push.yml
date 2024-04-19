@@ -28,12 +28,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-client ./client
-            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-nginx ./nginx
-            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-server ./server
-            - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-worker ./worker
+            - run: docker build -t shishir956/multi-client ./client
+            - run: docker build -t shishir956/multi-nginx ./nginx
+            - run: docker build -t shishir956/multi-server ./server
+            - run: docker build -t shishir956/multi-worker ./worker
        
-            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-client
-            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-nginx
-            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-server
-            - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/multi-worker
+            - run: docker push shishir956/multi-client:latest
+            - run: docker push shishir956/multi-nginx:latest
+            - run: docker push shishir956/multi-server:latest
+            - run: docker push shishir956/multi-worker:latest
+            
