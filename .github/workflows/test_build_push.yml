@@ -1,0 +1,13 @@
+name: Deploy Multidocker
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: docker build -t shishir956/react-test -f ./client/Dockerfile.dev ./client
+            - run: docker run -e CI=true shishir956/react-test npm test
