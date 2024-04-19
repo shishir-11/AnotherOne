@@ -27,6 +27,7 @@ jobs:
         needs: login
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v4
             - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-client-10-14 ./client
             - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-nginx-10-14 ./nginx
             - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/multi-server-10-14 ./server
